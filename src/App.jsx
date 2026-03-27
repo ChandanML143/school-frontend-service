@@ -12,14 +12,12 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         
-        {/* Protected routes wrapped with Layout */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="students" element={<StudentList />} />
           <Route path="teachers" element={<TeacherList />} />
         </Route>
         
-        {/* Fallback route */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

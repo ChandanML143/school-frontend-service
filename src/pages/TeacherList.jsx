@@ -17,9 +17,6 @@ const TeacherList = () => {
   const fetchTeachers = async () => {
     setLoading(true);
     try {
-      // Endpoint mapping based on what ApiGateway usually exposes.
-      // If teachers-service uses something slightly different to fetch, 
-      // we might need to adjust this in the future.
       const response = await axiosConfig.get('/teachers');
       setTeachers(response.data || []);
       setError(null);

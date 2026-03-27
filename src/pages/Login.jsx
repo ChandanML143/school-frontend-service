@@ -17,19 +17,14 @@ const Login = () => {
     setError('');
 
     try {
-      // The endpoint is /auth/login based on your backend
       const response = await axiosConfig.post('/auth/login', {
         username,
         password
       });
-
-      // Based on AuthController, it returns a plain String. 
-      // We will save it as a token to localStorage.
       const tokenString = response.data;
       
       if (tokenString) {
         localStorage.setItem('token', typeof tokenString === 'string' ? tokenString : JSON.stringify(tokenString));
-        // We'll also store a mock user object since the return format might just be a token string
         localStorage.setItem('user', JSON.stringify({ username }));
         navigate('/');
       } else {

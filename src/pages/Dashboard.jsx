@@ -10,7 +10,6 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    // Attempt to fetch stats. We mock it with 0 if API is down.
     const fetchStats = async () => {
       try {
         const [studentsRes, teachersRes] = await Promise.all([
